@@ -34,3 +34,21 @@ fn bin_search(arr: &[i32], desired_value: i32) -> Option<(i32, usize)> {
 
     None
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    const ARR: [i32; 10] = [-1, 3, 5, 7, 8, 10, 24, 37, 42, 135];
+
+    #[test]
+    fn element_found() {
+        assert_eq!((-1,0), bin_search(&ARR, -1).unwrap());
+    }
+
+    #[test]
+    fn element_not_found() {
+        let result = bin_search(&ARR, 1234);
+
+        assert!(result.is_none());
+    }
+}
